@@ -1,5 +1,11 @@
 package com.project;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 public class PR110ReadFile {
 
     public static void main(String[] args) {
@@ -9,6 +15,23 @@ public class PR110ReadFile {
 
     // Funció que llegeix el fitxer i mostra les línies amb numeració
     public static void llegirIMostrarFitxer(String camiFitxer) {
+        try {
+            List<String> linies = Files.readAllLines(Paths.get(camiFitxer), StandardCharsets.UTF_8);
+            mostrarLinies(linies);
+        } catch (IOException e) {
+            System.out.println("Error en la lectura del fitxer: " + camiFitxer);
+            e.printStackTrace();
+        }
+    }
 
+    public static void mostrarLinies(List<String> linies) {
+        
+        int i = 0;
+
+        for (String linia : linies) {
+            System.out.println(i+":"+linia);
+
+            i++;
+        }
     }
 }
