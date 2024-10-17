@@ -24,6 +24,7 @@ public class PR110ReadFile {
         }
     }
 
+    // Funció que printara les lineas a la consala sumantli el numero de linea
     public static void mostrarLinies(List<String> linies) {
         
         int i = 0;

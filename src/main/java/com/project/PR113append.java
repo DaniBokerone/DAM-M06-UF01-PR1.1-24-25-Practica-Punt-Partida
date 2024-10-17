@@ -1,5 +1,14 @@
 package com.project;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PR113append {
 
     public static void main(String[] args) {
@@ -12,5 +21,19 @@ public class PR113append {
 
     // Mètode que afegeix les frases al fitxer amb UTF-8 i línia en blanc final
     public static void afegirFrases(String camiFitxer) {
+
+        List<String> frases = new ArrayList<>(Arrays.asList(
+            "Welcome To The Real World.",
+            "All I'm Offering Is The Truth"
+        ));
+
+        frases.add(" "); 
+
+        try {
+            Files.write(Paths.get(camiFitxer), frases, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+            System.out.println("S'han afegit correctament les frases a l'arxiu");
+        } catch (IOException e) {
+            System.err.println("Error al escriure el fitxer: " + e.getMessage());
+        }
     }
 }

@@ -1,0 +1,65 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "PR110ReadFile",
+            "request": "launch",
+            "mainClass": "com.project.PR110ReadFile",
+            "projectName": "project-name"
+        },
+        {
+            "type": "java",
+            "name": "PR111Files",
+            "request": "launch",
+            "mainClass": "com.project.PR111Files",
+            "projectName": "project-name"
+        },
+        {
+            "type": "java",
+            "name": "PR112cat",
+            "request": "launch",
+            "mainClass": "com.project.PR112cat",
+            "projectName": "project-name",
+            "args": ["./data/pr112/example.txt"]
+        },
+        {
+            "type": "java",
+            "name": "PR113append",
+            "request": "launch",
+            "mainClass": "com.project.PR113append",
+            "projectName": "project-name"
+        },
+        {
+            "type": "java",
+            "name": "PR113sobreescriu",
+            "request": "launch",
+            "mainClass": "com.project.PR113sobreescriu",
+            "projectName": "project-name"
+        },
+        {
+            "type": "java",
+            "name": "PR114linies",
+            "request": "launch",
+            "mainClass": "com.project.PR114linies",
+            "projectName": "project-name"
+        },
+        {
+            "type": "java",
+            "name": "PR115cp",
+            "request": "launch",
+            "mainClass": "com.project.PR115cp",
+            "projectName": "project-name",
+            "args": ["./data/pr115/exemple.txt","./data/pr115_copia/desti.txt"]
+        }
+    ]
+}
