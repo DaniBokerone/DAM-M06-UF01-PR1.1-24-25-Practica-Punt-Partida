@@ -56,6 +56,7 @@ public class PR115cp {
                     String linea;
                     while ((linea = reader.readLine()) != null) {
                         writer.write(linea);
+                        writer.newLine();
                     }
 
                 } catch (IOException e) {

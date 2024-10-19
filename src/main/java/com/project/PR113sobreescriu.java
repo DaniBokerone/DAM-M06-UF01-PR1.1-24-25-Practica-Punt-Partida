@@ -22,11 +22,9 @@ public class PR113sobreescriu {
     public static void escriureFrases(String camiFitxer) {
         
         List<String> frases = new ArrayList<>(Arrays.asList(
-            "I Show You How Deep The Rabbit-Hole Goes",
-            "Have You Ever Had A Dream, Neo, That You Were So Sure Was Real?"
+            "I can only show you the door",
+            "You're the one that has to walk through it"
         ));
-
-        frases.add(" "); 
 
         try {
             Files.write(Paths.get(camiFitxer), frases, StandardCharsets.UTF_8);

@@ -2,41 +2,44 @@ package com.project;
 
 import java.io.File;
 import java.io.IOException;
+
 import com.project.utilitats.UtilitatsFitxers;
 
 public class PR111Files {
 
     public static void main(String[] args) throws IOException {
         String camiFitxer = System.getProperty("user.dir") + "/data/pr111";
-        String camiCarpeta = "/myFiles";
-        String camiDefinitiu = camiFitxer + camiCarpeta;
 
-        if (!UtilitatsFitxers.comprobarSiCarpetaExisteix(camiDefinitiu)) {
-            UtilitatsFitxers.crearCarpetaSiNoExisteix(camiDefinitiu);
+        if (!UtilitatsFitxers.comprobarSiCarpetaExisteix(camiFitxer)) {
+            UtilitatsFitxers.crearCarpetaSiNoExisteix(camiFitxer);
         }
 
-        gestionarArxius(camiDefinitiu);
+        gestionarArxius(camiFitxer);
     }
 
     public static void gestionarArxius(String camiFitxer) {
         try {
-            UtilitatsFitxers.crearArxiuSiNoExisteix(camiFitxer, "file1.txt");
-            UtilitatsFitxers.crearArxiuSiNoExisteix(camiFitxer, "file2.txt");
+            String camiCarpeta = camiFitxer + "/myFiles";
 
-            String renameFile = camiFitxer + "/file2.txt";
+            UtilitatsFitxers.crearCarpetaSiNoExisteix(camiCarpeta);
+
+            UtilitatsFitxers.crearArxiuSiNoExisteix(camiCarpeta, "file1.txt");
+            UtilitatsFitxers.crearArxiuSiNoExisteix(camiCarpeta, "file2.txt");
+
+            String renameFile = camiCarpeta + "/file2.txt";
             UtilitatsFitxers.renombrarArxiu(renameFile, "renamedFile.txt");
 
-            imprimirNomArchiusEnDirectori(camiFitxer);
+            imprimirNomArchiusEnDirectori(camiCarpeta);
 
-            String deleteFile = camiFitxer + "/file1.txt";
+            String deleteFile = camiCarpeta + "/file1.txt";
             UtilitatsFitxers.borrarArxiu(deleteFile);
             
-            imprimirNomArchiusEnDirectori(camiFitxer);
+            imprimirNomArchiusEnDirectori(camiCarpeta);
 
             //Borrar els archius per a poder tornar a fer les probes
-            String deleteRenamedFile = camiFitxer + "/renamedFile.txt";
+            //String deleteRenamedFile = camiFitxer + "/renamedFile.txt";
             
-            UtilitatsFitxers.borrarArxiu(deleteRenamedFile);
+            //UtilitatsFitxers.borrarArxiu(deleteRenamedFile);
         } catch (IOException e) {
             e.printStackTrace();
         }

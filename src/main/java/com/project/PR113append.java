@@ -1,5 +1,6 @@
 package com.project;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -23,13 +24,16 @@ public class PR113append {
     public static void afegirFrases(String camiFitxer) {
 
         List<String> frases = new ArrayList<>(Arrays.asList(
-            "Welcome To The Real World.",
-            "All I'm Offering Is The Truth"
+            "I can only show you the door",
+            "You're the one that has to walk through it"
         ));
 
-        frases.add(" "); 
-
         try {
+            File fitxer = new File(camiFitxer);
+            if (!fitxer.exists()) {
+                fitxer.createNewFile();
+            }
+
             Files.write(Paths.get(camiFitxer), frases, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
             System.out.println("S'han afegit correctament les frases a l'arxiu");
         } catch (IOException e) {
